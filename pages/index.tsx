@@ -1,17 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import { format } from "path";
 import { useState } from "react";
 import { GetServerSideProps } from "next";
 import { prisma } from "../lib/prisma";
 import { useRouter } from "next/router";
-import { formatDate } from "../lib/utils";
+// import { formatDate } from "../lib/utils";
 import Link from "next/link";
 
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface FormData {
   title: string;
@@ -93,9 +86,7 @@ const refreshData = () => {
 
   return (
     <>
-    <Head>
-     <title>Next Crud</title>
-    </Head>
+
       <div>
         <h1 className="text-center font-bold text-2xl mt-4">Notes</h1>
         <form
@@ -120,7 +111,7 @@ const refreshData = () => {
             className="border-2 rounded border-gray-600 p-1"
             required
           />
-          <button type="submit" className="bg-slate-600 text-white rounded p-1">
+          <button type="submit" className="w-60 m-auto bg-slate-600 text-white rounded p-1">
             Add +
           </button>
         </form>
@@ -130,7 +121,8 @@ const refreshData = () => {
             <li key={note.id} className="border-b border-gray-600 p-2">
               <div className="flex justify-between">
                 <div className="flex-1">
-                  <Link href={`/notes/${note.id}` }><h3 className="font-bold">{note.title}</h3>
+                  <Link href={`/notes/${note.id}` }>
+                    <h3 className="font-700">{note.title}</h3>
 </Link>
                   <p className="text-sm">{note.content}</p>
                   {/* <p className="text-sm">{formatDate(note.createdAt)}</p> */}
