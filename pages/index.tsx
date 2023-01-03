@@ -61,20 +61,20 @@ const refreshData = () => {
       console.log(error);
     }
   }
-  async function updateNote(id: string) {
-    try {
-      fetch(`http://localhost:3000/api/note/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "PUT",
-      }).then(() => {
-        refreshData();
-      })
-    } catch (error) {
-      console.log("Fail",error);
-    }
-  }
+  // async function updateNote(id: string) {
+  //   try {
+  //     fetch(`http://localhost:3000/api/note/${id}`, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       method: "PUT",
+  //     }).then(() => {
+  //       refreshData();
+  //     })
+  //   } catch (error) {
+  //     console.log("Fail",error);
+  //   }
+  // }
 
   const handleSubmit = async (data: FormData) => {
     try {
@@ -122,8 +122,8 @@ const refreshData = () => {
               <div className="flex justify-between">
                 <div className="flex-1">
                   <Link href={`/notes/${note.id}` }>
-                    <h3 className="font-700">{note.title}</h3>
-</Link>
+                    <h3 className="font-bold">{note.title}</h3>
+                  </Link>
                   <p className="text-sm">{note.content}</p>
                   {/* <p className="text-sm">{formatDate(note.createdAt)}</p> */}
                 </div>
